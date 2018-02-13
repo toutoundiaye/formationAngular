@@ -1,0 +1,131 @@
+<header>
+  <h2>Template</h2>
+</header>
+<article>
+  <p class="text-primary lead mt-3">Pipe (|)</p>
+  <p>Majuscule: {{min | uppercase }}</p>
+  <p>Minuscule: {{maj |lowercase }}</p>
+  <p>Titre: {{title |titlecase }}</p>
+
+  <p>Date: {{date | date: 'dd/MM/yyyy'}}</p>
+
+  <p>PI: {{pi | number:'1.1-5'}}</p>
+  <p>1/3: {{tiers | number:'2.3-5' }}</p>
+  <p>1/16: {{seize | number:'2.3-5'}}</p>
+
+  <p>Pourcentage: {{tiers | percent:'2.2'}}</p>
+
+  <p>Currency (code): {{price | currency:'CAD':'code':'1.2-2' }} </p>
+  <p>Currency (symbol): {{price | currency:'CAD':'symbol':'1.2-2' }} </p>
+  <p>Currency (narrow): {{price | currency:'CAD':'narrow':'1.2-2' }} </p>
+
+  <p>Object: {{ obj }}</p>
+  <p>Object: {{ obj | json }}</p>
+
+  <p>Slice: <small>Exercice Pagination</small></p>
+  <div class="row">
+    <div class="col-2">
+      <p>Page: {{index}}/{{total}}</p>
+    </div>
+    <div class="col-2">
+      <select [(ngModel)]="nbElt" (ngModelChange)="changeValue()">
+      <option *ngFor="let i of qte" [value]="i">{{ i }}</option>
+      </select>
+    </div>
+  </div>
+
+  <ul>
+    <li *ngFor="let name of liste | slice:start:end">{{ name }}</li>
+  </ul>
+
+  <div>
+    <button class="btn btn-outline-primary" (click)="prev()">&lt; &lt; Prev</button>
+    <button class="btn btn-outline-primary" (click)="next()">Next &gt; &gt; </button>
+  </div>
+
+  <p class="text-primary lead mt-3">Locales</p>
+  <p>
+    <a href="#" class="badge badge-dark" (click)="changeLocale('fr', $event)">Français</a>
+    <a href="#" class="badge badge-dark" (click)="changeLocale('en', $event)">Anglais</a>
+    <a href="#" class="badge badge-dark" (click)="changeLocale('de', $event)">Allemand</a>
+  </p>
+
+  <p>Date: {{date | date: 'full':'+0100'}}</p>
+
+  <p>Currency (code): {{price | currency:'CAD':'code':'1.2-2':lang }} </p>
+  <p>Currency (symbol): {{price | currency:'CAD':'symbol':'1.2-2':lang }} </p>
+  <p>Currency (narrow): {{price | currency:'CAD':'narrow':'1.2-2':lang }} </p>
+
+  <p class="text-primary lead mt-3">Safe Operator (?)</p>
+  <p>User = {{user?.name}}</p>
+
+  <p class="text-primary lead mt-3">Directive</p>
+
+  <h3 class="text-danger">ngIf</h3>
+
+  <button class="btn btn-primary btn-sm" (click)="!isVisible = !isVisible">
+    {{ isVisible? 'Hide':'show' }}
+  </button>
+
+  <div *ngIf="isVisible" class="text-justify mt-3 mb-3">
+    des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+    Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique,
+    sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente
+    de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion
+    dans des applications de mise en page de texte, comme Aldus PageMaker.
+  </div>
+
+  <hr/>
+  <div *ngIf="isVisible else elseBlock"class="text-justify mt-3 mb-3">
+    des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+    Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique,
+    sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente
+    de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion
+    dans des applications de mise en page de texte, comme Aldus PageMaker.
+  </div>
+  <ng-template #elseBlock>
+    On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source
+    de distractions, et empêche
+  </ng-template>
+
+  <div *ngIf="isVisible then thenBlock else secondElseBlock"></div>
+    <ng-template #thenBlock>
+      <div class="text-justify mt-3 mb-3">
+          des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+          Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique,
+          sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente
+          de feuilles Letraset contenant
+      </div>
+    </ng-template>
+    <ng-template #secondElseBlock>
+      <div class="text-justify mt-3 mb-3">
+        de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion
+        dans des applications de mise en page de texte, comme Aldus PageMaker.
+      </div>
+  </ng-template>
+  <p class="lead text-danger">NgClass</p>
+  <button class="btn btn-info btn-sm" (click)="hasClass=!hasClass">
+    Toggle Class
+  </button>
+  <p [ngClass]="{'text-primary': hasClass, 'text-success':!hasClass}">
+    Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique,
+    sans que son contenu n'en soit modifié.
+  </p>
+
+  <p class="lead text-danger">ngSwitch</p>
+
+  <button class="btn btn-outline-primary btn-sm" (click)="mode = 'vertical'">Vertical</button>
+
+  <button class="btn btn-outline-primary btn-sm" (click)="mode = 'horizontal'">Horizontal</button>
+
+  <div [ngSwitch]="mode">
+      <ul class="list-unstyled" *ngSwitchCase=" 'vertical' ">
+        <li *ngFor="let name of liste">{{ name }}</li>
+      </ul>
+
+      <ul class="list-inline"  *ngSwitchCase="'horizontal'">
+        <li *ngFor="let name of liste" class="list-inline-item">{{ name }}</li>
+      </ul>
+  </div >
+
+</article>

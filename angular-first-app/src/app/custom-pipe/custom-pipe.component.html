@@ -1,0 +1,10 @@
+<<header>
+  <h2>Pipe Personnalisé</h2>
+</header>
+<p>2^3 = {{ 2 | power:3 }}</p>
+
+<p>2^3*2 = {{ 2 | power:3:2 }}</p>
+
+<p class="text-primary">Pipelindrome</p>
+<input type="text" placeholder="Entrez votre palindrome" class="form-control" #text (keyup)="0" >
+<p class="form-control-plaintext">{{text.value | pipelindrome}}</p>

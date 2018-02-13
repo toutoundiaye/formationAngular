@@ -1,0 +1,57 @@
+<header>
+  <h2>Présentation</h2>
+</header>
+
+<article>
+  <h3>Affichage</h3>
+  <div class="row">
+    <div class="col">
+      <p> 1+2 = {{1+2}}</p>
+    </div>
+    <div class="col">
+      <p>Hello {{name}}</p>
+    </div>
+    <div class="col">
+      <p>{{product.name}} @ {{product.price}}€/kg</p>
+    </div>
+    <div class="col">
+      <p>{{uppercase('pomme')}}</p>
+    </div>
+  </div>
+  <h3>Evenement</h3>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-outline-primary" (click)="clicked()">Cliquez ici</button>
+    </div>
+    <div class="col">
+      <a href="#hello" class="btn btn-outline-danger" (click)="showMessage('#message', $event)">
+        Voir le message secret
+      </a>
+      <p id="message" style="display: none">Mesage ...</p>
+    </div>
+  </div>
+    <h3>Two Way Data Binding</h3>
+    <div class="row">
+      <div class="col">
+        <input type="text" placeholder="Entrez votre message" class="form-control" [(ngModel)]="message"/>
+        <p class="form-control-plaintext">{{message}}</p>
+        <button (click)="showModelMessage()">Afficher Model message</button>
+      </div>
+    </div>
+  <h3>Variable de template</h3>
+  <div class="row">
+    <div class="col">
+      <input type="text" placeholder="Variable de template" class="form-control" #local_message (keyup)="0"/>
+      <p class="form-control-plaintext">{{local_message.value}}</p>
+    </div>
+    <div class="col">
+      <input type="text" placeholder="Variable de template" class="form-control" #local_message_2 (keyup.enter)="0"/>
+      <p class="form-control-plaintext">{{local_message_2.value}}</p>
+    </div>
+  </div>
+  <h3>NgFor</h3>
+  <ul>
+    <li *ngFor="let name of liste; index as i">{{i}} {{name}}</li>
+  </ul>
+</article>
+<hr />
