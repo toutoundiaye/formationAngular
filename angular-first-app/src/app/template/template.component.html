@@ -25,11 +25,11 @@
   <p>Slice: <small>Exercice Pagination</small></p>
   <div class="row">
     <div class="col-2">
-      <p>Page: {{index}}/{{total}}</p>
+      <p>Page: {{ index }}/{{ total }} </p>
     </div>
     <div class="col-2">
       <select [(ngModel)]="nbElt" (ngModelChange)="changeValue()">
-      <option *ngFor="let i of qte" [value]="i">{{ i }}</option>
+      <option *ngFor="let i of qte" [value]="i">{{i}}</option>
       </select>
     </div>
   </div>

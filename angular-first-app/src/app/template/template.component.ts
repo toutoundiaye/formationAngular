@@ -50,15 +50,15 @@ export class TemplateComponent  {
   }
 
   public prev(){
-    if(this.index !== 1) {
-      this.start -= this.nbElt;
-      this.end -= this.nbElt;
-      this.index--;
-    }
+   if (this.index !== 1){
+     this.start -= this.nbElt;
+     this.end -= this.nbElt;
+     this.index--;
+   }
   }
 
   public next(){
-    if(this.index !== this.total) {
+    if (this.index !== this.total){
       this.start += this.nbElt;
       this.end += this.nbElt;
       this.index++;
@@ -72,6 +72,6 @@ export class TemplateComponent  {
     this.start = 0;
 
     this.index = 1;
-    this.total = Math.ceil(this.liste.length/this.nbElt);
+    this.total = Math.ceil(this.liste.length / this.nbElt);
   }
 }
