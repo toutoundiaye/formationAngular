@@ -9,6 +9,7 @@ import {TodolistComponent} from "./todolist/todolist.component";
 import {NotfoundComponent} from "./notfound/notfound.component";
 import {TemplateComponent} from "./template/template.component";
 import {CustomPipeComponent} from "./custom-pipe/custom-pipe.component";
+import {CustomDirectiveComponent} from "./custom-directive/custom-directive.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'todolist', component: TodolistComponent},
   {path: 'template', component: TemplateComponent},
   {path: 'custom-pipe', component:CustomPipeComponent},
+  {path: 'custom-directive', component:CustomDirectiveComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: NotfoundComponent}
 

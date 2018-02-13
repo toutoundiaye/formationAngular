@@ -21,6 +21,9 @@ import { TemplateComponent } from './template/template.component';
 import { CustomPipeComponent } from './custom-pipe/custom-pipe.component';
 import { PowerPipe } from './power.pipe';
 import { PipelindromePipe } from './pipelindrome.pipe';
+import { CustomDirectiveComponent } from './custom-directive/custom-directive.component';
+import { HighlightDirective } from './highlight.directive';
+import { AutofocusDirective } from './autofocus.directive';
 
 
 
@@ -35,7 +38,10 @@ import { PipelindromePipe } from './pipelindrome.pipe';
     TemplateComponent,
     CustomPipeComponent,
     PowerPipe,
-    PipelindromePipe
+    PipelindromePipe,
+    CustomDirectiveComponent,
+    HighlightDirective,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
