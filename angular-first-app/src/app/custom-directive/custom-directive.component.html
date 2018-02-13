@@ -1,0 +1,13 @@
+<header>
+  <h2>Directive Personnalisée</h2>
+</header>
+<p appHighlight> Survolez moi avec une couleur par défaut</p>
+<p [appHighlight]="'green'"> Survolez moi avec la couleur verte</p>
+<p [appHighlight]="'#84815B'"> Survolez moi avec une couleur hexa</p>
+<p [appHighlight]="'rgba(200,200,0,0.5'"> Survolez moi avec une couleur rgba</p>
+
+<input type="text" class="form-control" placeholder="Entrez votre message" [(ngModel)]="message" autofocus/>
+<p class="form-control-plain">{{message}}</p>
+<p>Create a focus directive</p>
+<input appAutofocus type="text" class="form-control" placeholder="Tester le focus" />
+
