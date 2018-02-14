@@ -27,6 +27,7 @@ import { AutofocusDirective } from './autofocus.directive';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ParametersComponent } from './parameters/parameters.component';
+import { ServiceComponent } from './service/service.component';
 
 
 
@@ -48,6 +49,7 @@ import { ParametersComponent } from './parameters/parameters.component';
     FormulaireComponent,
     ReactiveFormComponent,
     ParametersComponent,
+    ServiceComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,10 @@ import { ParametersComponent } from './parameters/parameters.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: 'secureRouteGuard',
+    useValue: () => { return true;}
+  }],
   bootstrap: [RouteComponent]
 })
 export class AppModule { }

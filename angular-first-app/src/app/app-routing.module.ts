@@ -13,6 +13,7 @@ import {CustomDirectiveComponent} from "./custom-directive/custom-directive.comp
 import {FormulaireComponent} from "./formulaire/formulaire.component";
 import {ReactiveFormComponent} from "./reactive-form/reactive-form.component";
 import {ParametersComponent} from "./parameters/parameters.component";
+import {ServiceComponent} from "./service/service.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -25,7 +26,13 @@ const routes: Routes = [
   {path: 'formulaire', component:FormulaireComponent},
   {path: 'signup', component:ReactiveFormComponent},
   {path:'parameters', component:ParametersComponent},
-  {path:'parameters/:name', component:ParametersComponent},
+  {
+    path:'parameters/:name',
+    component:ParametersComponent,
+    canActivate: ['secureRouteGuard']
+
+  },
+  {path: 'service', component:ServiceComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: NotfoundComponent}
 

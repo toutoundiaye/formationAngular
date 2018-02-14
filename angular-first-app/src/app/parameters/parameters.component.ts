@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 
 @Component({
   selector: 'app-parameters',
@@ -10,7 +10,7 @@ export class ParametersComponent implements OnInit {
 
   name = null;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
@@ -20,4 +20,7 @@ export class ParametersComponent implements OnInit {
     });
   }
 
+  public back(){
+    this.router.navigate(['/parameters'])
+  }
 }
