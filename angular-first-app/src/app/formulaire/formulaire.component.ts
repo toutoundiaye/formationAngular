@@ -15,12 +15,13 @@ export class FormulaireComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
+
   index = -1;
   button = 'Ajouter';
   isSelected = false;
 
   public onSubmit(){
-    if (this.isSelected){
+    if (this.isSelected) {
       this.liste[this.index] = this.product;
     }else {
     this.liste.push(this.product);
