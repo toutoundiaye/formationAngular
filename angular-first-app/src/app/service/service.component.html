@@ -11,10 +11,15 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let product of products; index as i">
+  <tr *ngFor="let product of products; index as i" >
     <td>{{++i}}</td>
     <td>{{product.name}}</td>
     <td>{{product.price | currency:'EUR':'symbol':'1.2-2':'fr'}}</td>
+    <td>
+      <button class="btn btn-outline-info btn-sm" (click)="removeProduct(i, $event)">
+        Delete
+      </button>
+    </td>
   </tr>
   </tbody>
   <tfoot>
@@ -23,10 +28,10 @@
       <button class="btn btn-outline-info btn-sm" (click)="addProduct()">ADD</button>
     </td>
     <td>
-      <input type="text" class="form-control" placeholder="Name" />
+      <input type="text" class="form-control" placeholder="Name" [(ngModel)]="product.name">
     </td>
     <td>
-      <input type="text" class="form-control" placeholder="Price"/>
+      <input type="text" class="form-control" placeholder="Price" [(ngModel)]="product.price"> 
     </td>
   </tr>
   </tfoot>
