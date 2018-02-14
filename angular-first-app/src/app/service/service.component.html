@@ -1,0 +1,33 @@
+<header>
+  <h2>Service</h2>
+</header>
+<button class="btn btn-primary" (click)="loadProduct()">Load Products</button>
+<table class="table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products; index as i">
+    <td>{{++i}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.price| currency:'EUR':'symbol':'1.2-2':'fr'}}</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td>
+      <button class="btn btn-outline-info btn-sm" (click)="addProduct()">ADD</button>
+    </td>
+    <td>
+      <input type="text" class="form-control" placeholder="Name"/>
+    </td>
+    <td>
+      <input type="text" class="form-control" placeholder="Price"/>
+    </td>
+  </tr>
+  </tfoot>
+</table>

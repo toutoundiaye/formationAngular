@@ -10,6 +10,10 @@ import {NotfoundComponent} from "./notfound/notfound.component";
 import {TemplateComponent} from "./template/template.component";
 import {CustomPipeComponent} from "./custom-pipe/custom-pipe.component";
 import {CustomDirectiveComponent} from "./custom-directive/custom-directive.component";
+import {FormulaireComponent} from "./formulaire/formulaire.component";
+import {ReactiveFormComponent} from "./reactive-form/reactive-form.component";
+import {ParametersComponent} from "./parameters/parameters.component";
+import {ServiceComponent} from "./service/service.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -19,6 +23,16 @@ const routes: Routes = [
   {path: 'template', component: TemplateComponent},
   {path: 'custom-pipe', component:CustomPipeComponent},
   {path: 'custom-directive', component:CustomDirectiveComponent},
+  {path: 'formulaire', component:FormulaireComponent},
+  {path: 'signup', component:ReactiveFormComponent},
+  {path:'parameters', component:ParametersComponent},
+  {
+    path:'parameters/:name',
+    component:ParametersComponent,
+    canActivate: ['secureRouteGuard']
+
+  },
+  {path: 'service', component:ServiceComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: NotfoundComponent}
 

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import {AppRoutingModule} from "./app-routing.module";
 
@@ -24,6 +24,10 @@ import { PipelindromePipe } from './pipelindrome.pipe';
 import { CustomDirectiveComponent } from './custom-directive/custom-directive.component';
 import { HighlightDirective } from './highlight.directive';
 import { AutofocusDirective } from './autofocus.directive';
+import { FormulaireComponent } from './formulaire/formulaire.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ParametersComponent } from './parameters/parameters.component';
+import { ServiceComponent } from './service/service.component';
 
 
 
@@ -41,14 +45,22 @@ import { AutofocusDirective } from './autofocus.directive';
     PipelindromePipe,
     CustomDirectiveComponent,
     HighlightDirective,
-    AutofocusDirective
+    AutofocusDirective,
+    FormulaireComponent,
+    ReactiveFormComponent,
+    ParametersComponent,
+    ServiceComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: 'secureRouteGuard',
+    useValue: () => { return true;}
+  }],
   bootstrap: [RouteComponent]
 })
 export class AppModule { }

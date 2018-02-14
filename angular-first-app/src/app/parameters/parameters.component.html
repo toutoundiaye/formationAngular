@@ -1,0 +1,16 @@
+<header>
+  <h2>Paramètres d'url</h2>
+</header>
+
+<ul class="nav justify-content-center">
+  <li><a class="nav-link" routerLink="/parameters/jean">Jean</a></li>
+  <li><a class="nav-link" [routerLink]="['/parameters', 'sophie']">Sophie</a></li>
+</ul>
+<article>
+  <p>Hello {{ name }}</p>
+  <div class="mt-3">
+    <button class="btn btn-outline-info btn-sm" (click)="back()">
+      &lt;&lt; Retour
+    </button>
+  </div>
+</article>
