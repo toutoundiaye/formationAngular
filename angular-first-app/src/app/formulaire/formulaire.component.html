@@ -1,0 +1,56 @@
+<header>
+  <h2>Formulaire</h2>
+</header>
+
+<section class="row">
+
+  <aside class="col-4">
+    <div class="list-group">
+      <a href="#" class="list-group-item d-flex justify-content-between" *ngFor="let p of liste;index as i" (click)="update(i, $event)">
+        {{p.name}} @ {{p.price | currency:'EUR':'symbol':'1.2-2':'fr'}}
+        <button class="btn btn-danger" (click)="remove(i, $event)">x</button>
+      </a>
+    </div>
+  </aside>
+
+  <article class="-8">
+
+    <form (ngSubmit)="onSubmit();myForm.reset()" #myForm="ngForm">
+
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Name:</label>
+        <div class="col-10">
+          <!--#spyName="ngModel" variable de template faisant reference à ngModel-->
+          <input type="text" class="form-control" name="name" placeholder="Entrez votre nom"
+                 [(ngModel)]="product.name" required #spyName="ngModel"
+                 [ngClass]="{'is-invalid':spyName.invalid && spyName.touched, 'is-valid':spyName.valid}"/>
+          <p class="invalid-feedback" [hidden]="spyName.valid || spyName.untouched">
+            Le nom est obligatoire
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Price:</label>
+        <div class="col-10">
+          <input type="text" class="form-control" name="price" placeholder="Entrez votre prix"
+                 [(ngModel)]="product.price" required #spyPrice="ngModel"
+                 [ngClass]="{'is-invalid':spyPrice.invalid && spyPrice.touched, 'is-valid':spyPrice.valid}"/>
+          <p class="invalid-feedback" [hidden]="spyPrice.valid || spyPrice.untouched">
+            Le prix est obligatoire
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-10">
+          <input type="submit"  name="send" value="Ajouter" class="btn btn-outline-primary"
+                 [disabled]="myForm.invalid">
+        </div>
+      </div>
+
+    </form>
+
+  </article>
+
+</section>
