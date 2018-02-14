@@ -14,7 +14,7 @@
   <tr *ngFor="let product of products; index as i">
     <td>{{++i}}</td>
     <td>{{product.name}}</td>
-    <td>{{product.price| currency:'EUR':'symbol':'1.2-2':'fr'}}</td>
+    <td>{{product.price | currency:'EUR':'symbol':'1.2-2':'fr'}}</td>
   </tr>
   </tbody>
   <tfoot>
@@ -23,7 +23,7 @@
       <button class="btn btn-outline-info btn-sm" (click)="addProduct()">ADD</button>
     </td>
     <td>
-      <input type="text" class="form-control" placeholder="Name"/>
+      <input type="text" class="form-control" placeholder="Name" />
     </td>
     <td>
       <input type="text" class="form-control" placeholder="Price"/>

@@ -11,18 +11,15 @@ import {Product} from "../classe/product";
 export class ServiceComponent implements OnInit {
 
   products: Array<Product> = [];
+
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
   }
 
- public loadProduct() {
-    //this.products = this.productService.getProducts();
-    const productsData = JSON.parse(window.localStorage.getItem('listProducts'));
-    this.products = productsData.products
- }
-
-  public addProduct() {
-    window.localStorage.setItem('listProducts', JSON.stringify(this);
+  public loadProduct() {
+    this.products = this.productService.getProducts();  
   }
+
+  
 }
