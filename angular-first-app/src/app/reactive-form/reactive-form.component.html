@@ -42,8 +42,18 @@
   <div class="form-group row">
     <label class="col-2 col-form-label">Confirm Password:</label>
     <div class="col-10">
-      <input type="password" class="form-control" name="password" placeholder="Confirmez votre mot de passe"
-             [formControl]="confirm"/>
+      <input type="password" class="form-control" name="confirm" placeholder="Confirmez votre mot de passe"
+             [formControl]="confirm"
+             [ngClass]="{'is-invalid': form.get('confirm').touched && (form.get('confirm').hasError('required')||
+             form.get('confirm').hasError('samePassword'))}"/>
+
+      <p class="invalid-feedback" *ngIf="form.get('confirm').hasError('samePassword')">
+        Les mots de passe ne sont pas identiques.
+      </p>
+      <p class="invalid-feedback" *ngIf="form.get('confirm').hasError('required')">
+        Renseignez à nouveau le mot de passe
+      </p>
+
     </div>
   </div>
 

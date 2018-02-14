@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CustomValidators} from "../classe/custom-validators";
+import {CustomPasswordValidators} from "../classe/custom-password-validators";
 
 @Component({
   selector: 'app-reactive-form',
@@ -25,7 +26,7 @@ export class ReactiveFormComponent implements OnInit {
     //FormControl (default value, [validators], [asynchronous values])
     this.email = new FormControl('', [Validators.required, CustomValidators.validEmail()]);
     this.password = new FormControl('', [Validators.required, Validators.minLength(8)]);
-    this.confirm = new FormControl('', []);
+    this.confirm = new FormControl('', [Validators.required, CustomPasswordValidators.samePassword(this.password)]);
     this.gender = new FormControl('', []);
     this.term =  new FormControl('', []);
 
