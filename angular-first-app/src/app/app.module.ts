@@ -26,6 +26,7 @@ import { HighlightDirective } from './highlight.directive';
 import { AutofocusDirective } from './autofocus.directive';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ParametersComponent } from './parameters/parameters.component';
 
 
 
@@ -46,6 +47,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     AutofocusDirective,
     FormulaireComponent,
     ReactiveFormComponent,
+    ParametersComponent,
   ],
   imports: [
     BrowserModule,

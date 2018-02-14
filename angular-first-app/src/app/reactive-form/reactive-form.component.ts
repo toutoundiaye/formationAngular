@@ -23,7 +23,7 @@ export class ReactiveFormComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    //FormControl (default value, [validators], [asynchronous values])
+    //FormControl (default value, [validators], [asynchronous validators])
     this.email = new FormControl('', [Validators.required, CustomValidators.validEmail()]);
     this.password = new FormControl('', [Validators.required, Validators.minLength(8)]);
     this.confirm = new FormControl('', [Validators.required, CustomPasswordValidators.samePassword(this.password)]);
