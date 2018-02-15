@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import {AppRoutingModule} from "./app-routing.module";
+import {AppRoutingModule} from './app-routing.module';
 
-import {registerLocaleData} from "@angular/common";
+import {registerLocaleData} from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import localeDe from '@angular/common/locales/de';
 
@@ -28,10 +28,13 @@ import { FormulaireComponent } from './formulaire/formulaire.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ParametersComponent } from './parameters/parameters.component';
 import { ServiceComponent } from './service.component';
-import {SecureRouteGuard} from "./secure-route.guard";
+import {SecureRouteGuard} from './secure-route.guard';
 import { AuthentificationComponent } from './authentification/authentification.component';
-import {AuthentificationService} from "./service/authentification.service";
+import {AuthentificationService} from './service/authentification.service';
 import { PromobseComponent } from './promobse/promobse.component';
+import { HttpComponent } from './http/http.component';
+import {HttpClientModule} from '@angular/common/http';
+import { XssComponent } from './xss/xss.component';
 
 
 
@@ -56,12 +59,15 @@ import { PromobseComponent } from './promobse/promobse.component';
     ServiceComponent,
     AuthentificationComponent,
     PromobseComponent,
+    HttpComponent,
+    XssComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
 /*  providers: [{
     provide: 'secureRouteGuard',

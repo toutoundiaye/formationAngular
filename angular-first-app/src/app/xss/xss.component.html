@@ -1,0 +1,27 @@
+<header>
+  <h2>XSS</h2>
+</header>
+
+<h3>innerHTML</h3>
+<article>
+  <p>{{dangerousHtml}}</p>
+  <p [innerHTML]="dangerousHtml"></p>
+</article>
+
+<h3>Urls</h3>
+<article>
+  <p><a [href]="dangerousUrl">Cliquez ici</a></p>
+
+  <p><a [href]="safeUrl">Cliquez ici possible à exécuter</a></p>
+
+</article>
+
+<h3>Resource URL</h3>
+<article>
+  <iframe [src]="dangerousResourceUrl"></iframe>
+</article>
+<hr />
+<article>
+  <iframe [src]="dangerousResourceUrl"></iframe>
+  <iframe width="560" height="315" src="safeResourceUrl" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</article>

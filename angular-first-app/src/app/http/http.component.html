@@ -1,0 +1,48 @@
+<header>
+  <h2>Http</h2>
+</header>
+<p class="lead text-info">Xml Http Request</p>
+<div class="mb-3">
+  <button class="btn-outline-info" (click)="loadUser()">Read Data</button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>Name</td>
+      <td>Username</td>
+      <td>Email</td>
+      <td>City</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.address.city}}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="mb-3">
+  <button class="btn-outline-info" (click)="loadPost()">Read Post</button>
+</div>
+<table class="table">
+  <thead>
+  <tr>
+    <td>UserID</td>
+    <td>Id</td>
+    <td>Title</td>
+    <td>Body</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let post of posts">
+    <td>{{post.userId}}</td>
+    <td>{{post.id}}</td>
+    <td>{{post.title}}</td>
+    <td>{{post.body}}</td>
+  </tr>
+  </tbody>
+</table>

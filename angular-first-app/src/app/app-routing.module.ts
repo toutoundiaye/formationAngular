@@ -17,6 +17,8 @@ import {ServiceComponent} from './service.component';
 import {AuthentificationComponent} from './authentification/authentification.component';
 import {SecureRouteGuard} from './secure-route.guard';
 import {PromobseComponent} from "./promobse/promobse.component";
+import {HttpComponent} from "./http/http.component";
+import {XssComponent} from "./xss/xss.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -37,7 +39,9 @@ const routes: Routes = [
   },
   {path: 'service', component: ServiceComponent},
   {path: 'auth', component: AuthentificationComponent},
-  {path: 'promobse', component:PromobseComponent},
+  {path: 'promobse', component: PromobseComponent},
+  {path: 'http', component: HttpComponent},
+  {path: 'xss', component: XssComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: NotfoundComponent}
 
