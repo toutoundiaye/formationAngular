@@ -4,13 +4,12 @@ import {AuthentificationService} from '../service/authentification.service';
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.component.html',
-  styleUrls: ['./authentification.component.css'],
-  providers: [AuthentificationService]
+  styleUrls: ['./authentification.component.css']
 })
 export class AuthentificationComponent implements OnInit {
 
   message: string = null;
-  btnState: boolean = true;
+  btnState: boolean = false;
 
   constructor(private auth: AuthentificationService) { }
 

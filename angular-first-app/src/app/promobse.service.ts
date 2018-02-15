@@ -36,5 +36,20 @@ export class PromobseService {
     });
   }
 
+  public observableDownload(): Observable<number> {
+    let value = 0;
+
+    return Observable.create((observer: Subscriber<number>) => {
+      const interval = setInterval(  () => {
+        value += (value < 95) ? Math.floor(Math.random() * 5 + 1) : 1;
+        if (value <= 100) {
+          observer.next(value);
+        } else {
+            observer.complete();
+            clearInterval(interval);
+        }
+      }, 250);
+    });
+  }
 
 }
