@@ -1,0 +1,16 @@
+<header>
+  <h2>Authentification</h2>
+</header>
+
+<p *ngIf="message">
+  {{ message }}
+</p>
+
+<button class="btn btn-outline-primary" (click)="login()" *ngIf="!btnState">
+  Log In
+</button>
+
+
+<button class="btn btn-outline-secondary" (click)="logout()" *ngIf="btnState">
+  Log Out
+</button>
