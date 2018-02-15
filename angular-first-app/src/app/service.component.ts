@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductService} from "../product.service";
-import {Product} from "../classe/product";
+import {ProductService} from "./product.service";
+import {Product} from "./classe/product";
 
 @Component({
   selector: 'app-service',
-  templateUrl: './service.component.html',
-  styleUrls: ['./service.component.css'],
+  templateUrl: './service/service.component.html',
+  styleUrls: ['./service/service.component.css'],
   providers: [ProductService]
 })
 export class ServiceComponent implements OnInit {
@@ -31,7 +31,7 @@ export class ServiceComponent implements OnInit {
     }
   }*/
 
- public saveProduct(){
+ public saveProduct() {
    this.productService.add(this.product);
    this.product = new Product();
  }

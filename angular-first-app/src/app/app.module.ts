@@ -19,15 +19,19 @@ import { RouteComponent } from './route/route.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { TemplateComponent } from './template/template.component';
 import { CustomPipeComponent } from './custom-pipe/custom-pipe.component';
-import { PowerPipe } from './power.pipe';
-import { PipelindromePipe } from './pipelindrome.pipe';
+import { PowerPipe } from './pipe/power.pipe';
+import { PipelindromePipe } from './pipe/pipelindrome.pipe';
 import { CustomDirectiveComponent } from './custom-directive/custom-directive.component';
-import { HighlightDirective } from './highlight.directive';
-import { AutofocusDirective } from './autofocus.directive';
+import { HighlightDirective } from './directive/highlight.directive';
+import { AutofocusDirective } from './directive/autofocus.directive';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ParametersComponent } from './parameters/parameters.component';
-import { ServiceComponent } from './service/service.component';
+import { ServiceComponent } from './service.component';
+import {SecureRouteGuard} from "./secure-route.guard";
+import { AuthentificationComponent } from './authentification/authentification.component';
+import {AuthentificationService} from "./service/authentification.service";
+import { PromobseComponent } from './promobse/promobse.component';
 
 
 
@@ -50,6 +54,8 @@ import { ServiceComponent } from './service/service.component';
     ReactiveFormComponent,
     ParametersComponent,
     ServiceComponent,
+    AuthentificationComponent,
+    PromobseComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,10 +63,11 @@ import { ServiceComponent } from './service/service.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [{
+/*  providers: [{
     provide: 'secureRouteGuard',
     useValue: () => { return true;}
-  }],
+  }],*/
+  providers: [AuthentificationService, SecureRouteGuard],
   bootstrap: [RouteComponent]
 })
 export class AppModule { }

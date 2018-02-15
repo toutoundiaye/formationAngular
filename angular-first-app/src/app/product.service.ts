@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Product} from "./classe/product";
+import {Product} from './classe/product';
 
 @Injectable()
 export class ProductService {
@@ -20,7 +20,7 @@ export class ProductService {
 
   public getProducts(): Array<Product> {
     if (JSON.parse(localStorage.getItem('listProducts')) != null
-      && JSON.parse(localStorage.getItem('listProducts')) != undefined) {
+      && JSON.parse(localStorage.getItem('listProducts')) !== undefined) {
       for (const product of JSON.parse(localStorage.getItem('listProducts'))) {
         this.products.push(new Product(product._name, product._price));
       }
@@ -35,7 +35,7 @@ export class ProductService {
   }
 
   public remove(i: number) {
-    this.products.splice(i, 1)
+    this.products.splice(i, 1);
     this.save();
   }
 
