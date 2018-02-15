@@ -11,7 +11,7 @@ import {Product} from "../classe/product";
 export class ServiceComponent implements OnInit {
 
   products: Array<Product> = [];
-  product = new Product();
+  product: Product = new Product();
 
   constructor(private productService: ProductService) { }
 
@@ -19,19 +19,29 @@ export class ServiceComponent implements OnInit {
   }
 
   public loadProduct() {
-    this.products = this.productService.getProducts();  
+    this.products.splice (0, this.products.length);
+    this.products = this.productService.getProducts();
   }
-   
-  public addProduct(){
+
+ /* public addProduct(){
     if (this.product) {
       this.products.push(new Product(this.product.name, this.product.price));
       window.localStorage.setItem('listProducts', JSON.stringify(this.product));
       this.product = new Product();
     }
-  }
+  }*/
 
-  public removeProduct(id, event: MouseEvent): void {
+ public saveProduct(){
+   this.productService.add(this.product);
+   this.product = new Product();
+ }
+
+ /* public removeProduct(id, event: MouseEvent): void {
     event.preventDefault();
     this.products.splice(id, 1)
-  }
+  }*/
+
+ public deleteProduct(i: number){
+   this.productService.remove(i);
+ }
 }
