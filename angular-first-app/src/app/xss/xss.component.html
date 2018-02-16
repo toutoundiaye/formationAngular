@@ -17,11 +17,10 @@
 </article>
 
 <h3>Resource URL</h3>
-<article>
+<!--<article>
   <iframe [src]="dangerousResourceUrl"></iframe>
-</article>
+</article>-->
 <hr />
 <article>
-  <iframe [src]="dangerousResourceUrl"></iframe>
-  <iframe width="560" height="315" src="safeResourceUrl" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <iframe width="560" height="315" [src]="safeResourceUrl" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </article>

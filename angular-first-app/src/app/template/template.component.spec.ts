@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TemplateComponent } from './template.component';
+import {FormsModule} from '@angular/forms';
+import {registerLocaleData} from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import localeDe from '@angular/common/locales/de';
+
+registerLocaleData(localeFr);
+registerLocaleData(localeDe);
 
 describe('TemplateComponent', () => {
   let component: TemplateComponent;
@@ -8,7 +15,8 @@ describe('TemplateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TemplateComponent ]
+      declarations: [ TemplateComponent ],
+      imports: [ FormsModule ]
     })
     .compileComponents();
   }));
@@ -21,5 +29,14 @@ describe('TemplateComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('lang should be "fr"', () => {
+    expect(component.lang).toEqual('fr');
+  });
+
+  it('after setLocale("de") lang should be "de"', () => {
+    component.setLocale('de');
+    expect(component.lang).toEqual('de');
   });
 });

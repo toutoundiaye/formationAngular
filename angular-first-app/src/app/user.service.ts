@@ -3,7 +3,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
 import {catchError, retry} from 'rxjs/operators';
-import {Post} from "./post";
+import {Post} from './post';
 
 @Injectable()
 export class UserService {
@@ -14,7 +14,7 @@ export class UserService {
   constructor(private http: HttpClient)  { }
 
 //version 1
-  public getAllUser(): Observable<Object> {
+  public getAllUser(): Observable<Object[]> {
     return this.http.get(this.url).pipe(
       retry(3),
       catchError(this.handleError)

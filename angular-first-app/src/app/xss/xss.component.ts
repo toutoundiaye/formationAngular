@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-xss',
@@ -10,17 +10,17 @@ export class XssComponent implements OnInit {
 
   dangerousHtml = 'Template <script>alert("Danger !")</script>';
 
-  dangerousUrl = 'javascript:alert("Danger !)';
+  dangerousUrl = 'javascript:alert("Danger !")';
   safeUrl: SafeUrl;
 
-  dangerousResourceUrl ='https://www.youtube.com/watch?v=QgzslSsSECM';
+  dangerousResourceUrl = 'https://www.youtube.com/embed/QgzslSsSECM';
   safeResourceUrl: SafeResourceUrl;
 
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.safeUrl = this.sanitizer.bypassSecurityTrustUrl(this.dangerousUrl);
-    this.safeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousRessourceUrl);
+    this.safeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousResourceUrl);
   }
 
 }

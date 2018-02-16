@@ -20,14 +20,14 @@ export class TemplateComponent  {
 
   price = 9999.99;
 
-  obj = {nom: 'Kenobi', prenom:'Obiwan', pseudo: 'Ben', profession: 'Jedi'};
+  obj = {nom: 'Kenobi', prenom: 'Obiwan', pseudo: 'Ben', profession: 'Jedi'};
 
   liste = [
     'Jonathan', 'thomas', 'Boris', 'Omer', 'Elise', 'Toutou', 'Yaya',
-    'Johan', 'Vincent', 'François', 'Maxence', 'Manuel', 'Arnaud', 'Jenifer','Stephane'
+    'Johan', 'Vincent', 'François', 'Maxence', 'Manuel', 'Arnaud', 'Jenifer', 'Stephane'
   ];
 
-  lang = 'en';
+  lang = 'fr';
 
   nbElt = 5;
   start = 0;
@@ -36,7 +36,7 @@ export class TemplateComponent  {
   index = 1;
   total = Math.ceil(this.liste.length / this.nbElt);
 
-  qte = [3,5,10];
+  qte = [3, 5, 10];
 
   user = null; //{nom: 'Kenobi', prenom:'Obiwan', pseudo: 'Ben', profession: 'Jedi'}
 
@@ -44,28 +44,32 @@ export class TemplateComponent  {
   hasClass = true;
   mode = 'vertical';
 
+  public setLocale(lang: string) {
+    this.lang = lang;
+  }
+
   public changeLocale(lang: string, event: MouseEvent): void {
     event.preventDefault();
     this.lang = lang;
   }
 
-  public prev(){
-   if (this.index !== 1){
+  public prev() {
+   if (this.index !== 1) {
      this.start -= this.nbElt;
      this.end -= this.nbElt;
      this.index--;
    }
   }
 
-  public next(){
-    if (this.index !== this.total){
+  public next() {
+    if (this.index !== this.total) {
       this.start += this.nbElt;
       this.end += this.nbElt;
       this.index++;
     }
   }
 
-  public changeValue(){
+  public changeValue() {
     this.nbElt = +this.nbElt; //+ transforme la valeur en un entier c'est l'equivalent d'un parseInt
 
     this.end = this.nbElt;

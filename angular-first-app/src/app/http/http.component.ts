@@ -12,8 +12,8 @@ import {Post} from '../post';
 })
 export class HttpComponent implements OnInit {
 
-  users: Object = [];
-  posts: Post = [];
+  users: Object[] = [];
+  posts: Post;
 
   constructor(private userService: UserService) { }
 
@@ -32,6 +32,6 @@ export class HttpComponent implements OnInit {
     this.userService.getAllPost().subscribe((posts: Post) => {
       this.posts = {...posts};
       console.log(this.posts);
-    } )
+    } );
   }
 }

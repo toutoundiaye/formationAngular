@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HttpComponent } from './http.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserService} from '../user.service';
+import { UserMockService } from '../user-mock.service';
 
 describe('HttpComponent', () => {
   let component: HttpComponent;
@@ -8,7 +11,14 @@ describe('HttpComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HttpComponent ]
+      declarations: [ HttpComponent ],
+      imports: [ HttpClientModule ],
+    }).overrideComponent(HttpComponent, {
+      set: {
+        providers: [
+          {provide: UserService, useClass: UserMockService }
+        ]
+      }
     })
     .compileComponents();
   }));
@@ -21,5 +31,10 @@ describe('HttpComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('getAllUser() should return 4 users', () => {
+    component.loadUser();
+    expect(component.users.length).toEqual(4);
   });
 });
